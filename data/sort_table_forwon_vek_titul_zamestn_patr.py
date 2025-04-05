@@ -17,10 +17,10 @@ common_cols = ['Kód kraja', 'Názov kraja', 'Kód územného obvodu',
                'Meno', 'Priezvisko']
 
 #from all_candidates fetch 4 last colums
-inform_colims = merge_table.columns[-4:]
-table_age = merge_table.loc[:, common_cols + [inform_colims[1]]]
-table_education = merge_table.loc[:, common_cols + [inform_colims[0]]]
-table_job = merge_table.loc[:, common_cols + [inform_colims[2]]]
+inform_colums = merge_table.columns[-4:]
+table_age = merge_table.loc[:, common_cols + [inform_colums[1]]]
+table_education = merge_table.loc[:, common_cols + [inform_colums[0]]]
+table_job = merge_table.loc[:, common_cols + [inform_colums[2]]]
 
 #not from all_candidates but from merge table from common colums(№10)
 table_polit = merge_table.loc[:, common_cols + [merge_table.columns[10]]]
