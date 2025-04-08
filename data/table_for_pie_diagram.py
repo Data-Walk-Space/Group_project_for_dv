@@ -21,7 +21,7 @@ won = pd.read_excel(path_won, header=2)
 new = won.merge(all, on=['Priezvisko','Kód kraja', 'Názov kraja', 'Kód územného obvodu', 'Kód okresu', 'Názov okresu',
                 'Kód obce', 'Názov obce', 'Meno', 'Politický subjekt'] ,how='left')
 
-fig, axs = plt.subplots(2, 2, figsize=(14, 12))
+fig, axs = plt.subplots(2, 2, figsize=(18, 10))
 fig.suptitle("Analýza víťazov podľa veku, titulu, zamestnania a strany", fontsize=20)
 
 new_age = new.iloc[2:, [1,3,5,7,14]]
@@ -44,7 +44,7 @@ ages = {
 }
 axs[0, 0].pie(x = ages.values(), autopct=procent(4))
 axs[0, 0].set_title('Vek')
-axs[0, 0].legend(ages.keys(), title="Vek", bbox_to_anchor=(1.5, 0.9))
+axs[0, 0].legend(ages.keys(), title="Vek", bbox_to_anchor=(1.1, 0.9))
 
 new_education = new.iloc[:, [0,1,2,3,4,5,6,7,13]]
 category_counts = new_education['Titul'].value_counts()
@@ -53,7 +53,7 @@ category_counts = new_education['Titul'].value_counts()
 filtered_counts = others(category_counts, 7)
 axs[0, 1].pie(x = filtered_counts, autopct=procent(4))
 axs[0, 1].set_title('Titul')
-axs[0, 1].legend(filtered_counts.index, title="Titul", bbox_to_anchor=(1.5, 0.9))
+axs[0, 1].legend(filtered_counts.index, title="Titul", bbox_to_anchor=(1.1, 0.9))
 
 
 new_party = new.iloc[:, [0,1,2,3,4,5,6,7,10]]
@@ -64,7 +64,7 @@ category_counts = new_party['Politický subjekt'].value_counts()
 filtered_counts = others(category_counts, 9)
 axs[1, 0].pie(x = filtered_counts, autopct=procent(4))
 axs[1, 0].set_title('Politický subjekt')
-axs[1, 0].legend(filtered_counts.index, title="Politický subjekt", bbox_to_anchor=(2.1, 0.9))
+axs[1, 0].legend(filtered_counts.index, title="Politický subjekt", bbox_to_anchor=(1.1, 0.9))
 
 
 new_job = new.iloc[:, [0,1,2,3,4,5,6,7,15]]
@@ -82,8 +82,8 @@ category_counts = new_job['Zamestnanie'].value_counts()
 filtered_counts = others(category_counts, 7)
 axs[1, 1].pie(x = filtered_counts, autopct=procent(4))
 axs[1, 1].set_title('Zamestnanie')
-axs[1, 1].legend(filtered_counts.index, title="Zamestnanie", bbox_to_anchor=(1.7, 0.9))
-
-plt.show()
+axs[1, 1].legend(filtered_counts.index, title="Zamestnanie", bbox_to_anchor=(1.0, 0.9))
 
 plt.savefig('pie_diagram.png')
+
+plt.show()
