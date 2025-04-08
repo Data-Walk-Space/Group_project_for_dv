@@ -58,6 +58,7 @@ axs[0, 1].legend(filtered_counts.index, title="Titul", bbox_to_anchor=(1.1, 0.9)
 
 new_party = new.iloc[:, [0,1,2,3,4,5,6,7,10]]
 new_party.loc[new_party['Politický subjekt'] == 'Hlas - sociálna demokracia, SMER - SD', 'Politický subjekt'] = 'SMER - SD, Hlas - sociálna demokracia'
+new_party['Politický subjekt'] = new_party['Politický subjekt'].str.upper()
 category_counts = new_party['Politický subjekt'].value_counts()
 #filtered_counts = category_counts[category_counts > 2]
 #print(filtered_counts)
