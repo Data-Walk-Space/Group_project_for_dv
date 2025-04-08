@@ -51,20 +51,22 @@ category_counts = new_education['Titul'].value_counts()
 #filtered_counts = category_counts[category_counts > 1]
 
 filtered_counts = others(category_counts, 7)
-axs[0, 1].pie(x = filtered_counts, autopct=procent(4))
+axs[0, 1].pie(x = filtered_counts, autopct=procent(7))
 axs[0, 1].set_title('Titul')
 axs[0, 1].legend(filtered_counts.index, title="Titul", bbox_to_anchor=(1.1, 0.9))
 
 
 new_party = new.iloc[:, [0,1,2,3,4,5,6,7,10]]
+new_party.loc[new_party['Politický subjekt'] == 'Hlas - sociálna demokracia, SMER - SD', 'Politický subjekt'] = 'SMER - SD, Hlas - sociálna demokracia'
 category_counts = new_party['Politický subjekt'].value_counts()
 #filtered_counts = category_counts[category_counts > 2]
+#print(filtered_counts)
 
 
 filtered_counts = others(category_counts, 9)
-axs[1, 0].pie(x = filtered_counts, autopct=procent(4))
+axs[1, 0].pie(x = filtered_counts, autopct=procent(5))
 axs[1, 0].set_title('Politický subjekt')
-axs[1, 0].legend(filtered_counts.index, title="Politický subjekt", bbox_to_anchor=(1.1, 0.9))
+axs[1, 0].legend(filtered_counts.index, title="Politický subjekt", bbox_to_anchor=(1.0, 0.9))
 
 
 new_job = new.iloc[:, [0,1,2,3,4,5,6,7,15]]
