@@ -13,4 +13,5 @@ pop_merge.plot(column='Spolu', legend=True, cmap='Reds', ax=ax1)
 ax1.axis('off')
 ax1.set_title('Počet obyvateľov')
 plt.savefig('all_popul_sl.png')
+
 plt.show()
