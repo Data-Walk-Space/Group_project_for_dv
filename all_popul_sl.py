@@ -10,7 +10,7 @@ map_sl = gpd.read_file('slovakia.json')
 pop_merge = map_sl.merge(pop, on='code')
 
 fig1, ax1 = plt.subplots(figsize=(16, 8))
-pop_merge.plot(column='Spolu', legend=True, cmap='plasma', ax=ax1)
+pop_merge.plot(column='Spolu', legend=True, cmap='Reds', ax=ax1)
 ax1.axis('off')
 ax1.set_title('Počet obyvateľov')
 plt.savefig('all_popul_sl.png')
