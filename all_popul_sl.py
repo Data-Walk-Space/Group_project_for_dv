@@ -3,7 +3,6 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 
 pop = pd.read_excel('all_pop_obce.xlsx')
-
 pop.rename(columns={'Kód': 'code'}, inplace=True)
 
 map_sl = gpd.read_file('slovakia.json')
